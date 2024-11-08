@@ -55,26 +55,26 @@ function comprar() {
     }
 
     const productoTexto = productoSelect.options[productoSelect.selectedIndex].text.split(" - ")[0];
-    const totalProducto = totalDiv.split("$")[1].replace(/,/g, "").trim(); // Asegurarse de que el total sea un número
+    const totalProducto = totalDiv.split("$")[1].replace(/,/g, "").trim(); 
 
-    // Agregar el producto al registro de compras
-    registroComprasTextarea.value += `${cantidad} x ${productoTexto} = $${formatearNumero(totalProducto)}\n`;
+// Agregar el producto al registro de compras
+registroComprasTextarea.value += `${cantidad} x ${productoTexto} = $${formatearNumero(totalProducto)}\n`;
 
-    // Calcular el total acumulado de todas las compras
-    let totalAcumulado = parseFloat(totalCompraDiv.innerHTML.split("$")[1].replace(/,/g, "")) || 0;
-    totalAcumulado += parseFloat(totalProducto);
-    totalCompraDiv.innerHTML = `Total acumulado: $${formatearNumero(totalAcumulado)}`;
+// Calcular el total acumulado de todas las compras
+let totalAcumulado = parseFloat(totalCompraDiv.innerHTML.split("$")[1].replace(/,/g, "")) || 0;
+totalAcumulado += parseFloat(totalProducto);
+totalCompraDiv.innerHTML = `Total acumulado: $${formatearNumero(totalAcumulado)}`;
 
-    // Mostrar SweetAlert de confirmación de compra
-    Swal.fire({
-        icon: 'success',
-        title: 'Compra realizada',
-        text: `Has comprado ${cantidad} unidad(es) de ${productoTexto}. Total: $${formatearNumero(totalProducto)}`,
-        confirmButtonText: 'Aceptar'
-    });
+// Mostrar SweetAlert de confirmación de compra
+Swal.fire({
+    icon: 'success',
+    title: 'Compra realizada',
+    text: `Has comprado ${cantidad} unidad(es) de ${productoTexto}. Total: $${formatearNumero(totalProducto)}`,
+    confirmButtonText: 'Aceptar'
+});
 
-    // Limpiar campos
-    borrar();
+
+borrar();
 }
 
 // Función para borrar los campos de producto y cantidad
