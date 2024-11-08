@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja Registradora</title>
+    <link rel="stylesheet" href="./CSS/Styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="main-container"> <!-- Contenedor principal -->
+        <h1 class="titulo-pedir">A Pedir</h1> <!-- Título centrado -->
+        
+        <div class="container">
+            <!-- Sección de productos -->
+            <div class="productos">
+                <h2>Producto</h2>
+                <select id="producto" onchange="mostrarPrecio()">
+                    <option value="" disabled selected>Selecciona un producto</option>
+                    <option value="hamburguesa" data-precio="10000" data-imagen="hamburguesa.jpg">Hamburguesa</option>
+                    <option value="hotdog" data-precio="5000" data-imagen="hotdog.jpg">Hotdog</option>
+                    <option value="papas" data-precio="2000" data-imagen="papas.jpg">Papas</option>
+                    <option value="bebida" data-precio="3000" data-imagen="bebida.jpg">Bebida</option>
+                    <option value="pizza" data-precio="15000" data-imagen="pizza.jpg">Pizza</option>
+                    <option value="tacos" data-precio="8000" data-imagen="tacos.jpg">Tacos</option>
+                    <option value="ensalada" data-precio="6000" data-imagen="ensalada.jpg">Ensalada</option>
+                    <option value="sandwich" data-precio="7000" data-imagen="sandwich.jpg">Sándwich</option>
+                    <option value="sushi" data-precio="12000" data-imagen="sushi.jpg">Sushi</option>
+                    <option value="pollo_frito" data-precio="9000" data-imagen="pollo_frito.webp">Pollo Frito</option>
+                    <option value="empanadas" data-precio="5000" data-imagen="empanadas.jpg">Empanadas</option>
+                    <option value="churrasco" data-precio="18000" data-imagen="churrasco.jpg">Churrasco</option>
+                    <option value="lasagna" data-precio="13000" data-imagen="lasagna.jpg">Lasaña</option>
+                    <option value="ceviche" data-precio="14000" data-imagen="ceviche.jpg">Ceviche</option>
+                    <option value="falafel" data-precio="10000" data-imagen="falafel.jpg">Falafel</option>
+                </select>
+                <div id="precioUnitario"></div>
+
+                <!-- Cuadro para mostrar la imagen del producto -->
+                <div class="imagenProducto">
+                    <img id="imagenProducto" src="" alt="Imagen del producto" style="display: none;">
+                </div>
+            </div>
+
+            <!-- Sección de compra -->
+            <div class="compra">
+                <h2>Compra</h2>
+                <div id="productoSeleccionado"></div>
+                <label for="cantidad">Cantidad: </label>
+                <input type="number" id="cantidad" min="1" onchange="calcularTotal()" value="1">
+                <div id="total"></div>
+                <button onclick="comprar()">Comprar</button>
+                <button onclick="borrar()">Borrar</button>
+                <div id="advertencia" class="advertencia"></div>
+            </div>
+
+            <!-- Registro de compras -->
+            <div class="registro">
+                <h2>Registro de Compras</h2>
+                <textarea id="registroCompras" readonly></textarea>
+                <div id="totalCompra">Total acumulado: $0</div>
+                <button onclick="borrarRegistro()">Borrar Registro</button>
+            </div>
+        </div>
+    </div>
+    <script src="./JS/main.js"></script>
+</body>
+</html>
